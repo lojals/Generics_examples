@@ -1,5 +1,4 @@
-
-# <Generics>
+# Generics
 
 ## Definition
 
