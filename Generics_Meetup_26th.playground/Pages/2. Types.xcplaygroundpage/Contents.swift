@@ -9,7 +9,9 @@ class GenericClass<T> {
 }
 
 let genericClassItem1 = GenericClass<Int>(with: 2)
+
 let genericClassItem2: GenericClass<Int> = GenericClass(with: 2)
+
 let genericClassItem3 = GenericClass(with: 2)
 
 //----------------------------------------------------------------
@@ -33,7 +35,11 @@ protocol Idable {
     var id: String { get }
 }
 
-class GenericManager<T: Idable> {
+protocol Protocol2 {
+    var wid: String { get }
+}
+
+class GenericManager<T: Idable & Protocol2> {
     var value: T
     
     init(with value: T) {
@@ -41,14 +47,18 @@ class GenericManager<T: Idable> {
     }
     
     func printIdentifier() {
-        print("🔥 \(value.id)")
+        print("🔥 \(value.id) \(value.wid)")
     }
     
 }
 
-class ConcreteClass1: Idable {
+class ConcreteClass1: Idable, Protocol2 {
     
     var id: String {
+        return "class 1"
+    }
+    
+    var wid: String {
         return "class 1"
     }
     
