@@ -10,7 +10,7 @@ class GenericClass<T> {
 
 let genericClassItem1 = GenericClass<Int>(with: 2)
 
-let genericClassItem2: GenericClass<Int> = GenericClass(with: 2)
+let genericClassItem2: GenericClass<String> = GenericClass(with: "45")
 
 let genericClassItem3 = GenericClass(with: 2)
 
@@ -34,6 +34,8 @@ let genericEnum2 = GenericEnum.value("Hola mundo 2")
 protocol Idable {
     var id: String { get }
 }
+
+import UIKit
 
 protocol Protocol2 {
     var wid: String { get }
@@ -64,7 +66,6 @@ class ConcreteClass1: Idable, Protocol2 {
     
     init() { }
 }
-
 
 let conreteClass = ConcreteClass1()
 let manager = GenericManager(with: conreteClass)
